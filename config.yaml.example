@@ -1,0 +1,124 @@
+# AI-Powered API Testing Framework Configuration
+
+# AI Configuration
+ai:
+  provider: "anthropic"  # Options: anthropic, openai
+  model: "claude-sonnet-4-20250514"  # or gpt-4, gpt-4-turbo
+  api_key_env: "ANTHROPIC_API_KEY"  # Environment variable name
+  temperature: 0.3  # Lower = more deterministic
+  max_tokens: 4000
+  
+  # Prompt customization
+  test_generation:
+    include_edge_cases: true
+    include_security_tests: true
+    include_performance_assertions: false
+    max_tests_per_endpoint: 5
+
+# API Under Test Configuration
+api:
+  base_url: "https://api.example.com"  # Override from OpenAPI spec if needed
+  
+  # Authentication
+  auth:
+    type: "api_key"  # Options: none, api_key, bearer, oauth2, basic
+    # For api_key:
+    api_key: "${API_KEY}"  # Use env var
+    api_key_header: "X-API-Key"
+    # For bearer:
+    # token: "${BEARER_TOKEN}"
+    # For basic:
+    # username: "${API_USERNAME}"
+    # password: "${API_PASSWORD}"
+  
+  # Request configuration
+  timeout: 30  # seconds
+  retry_attempts: 2
+  retry_delay: 1  # seconds
+
+# Testing Configuration
+testing:
+  output_directory: "generated_tests"
+  test_file_prefix: "test_"
+  
+  # Test structure
+  fixtures:
+    include_setup_teardown: true
+    use_test_data_files: false
+  
+  # Pytest configuration
+  pytest_args:
+    - "-v"
+    - "--tb=short"
+    - "--color=yes"
+
+# Test Execution Configuration
+execution:
+  parallel: false  # Set true for pytest-xdist
+  workers: 4  # If parallel is true
+  
+  # Rate limiting
+  rate_limit:
+    enabled: true
+    requests_per_second: 5
+  
+  # Test data
+  test_data_directory: "test_data"
+  
+  # Failure handling
+  stop_on_first_failure: false
+  capture_screenshots: false  # For UI tests (future)
+
+# Reporting Configuration
+reporting:
+  # Report formats
+  formats:
+    - html
+    - json
+  
+  html:
+    template: "templates/report_template.html"
+    include_request_details: true
+    include_response_bodies: true
+    max_response_length: 1000  # characters
+  
+  # Executive summary
+  summary:
+    highlight_critical_failures: true
+    include_coverage_metrics: true
+    include_performance_metrics: true
+  
+  # Email notifications (optional)
+  email:
+    enabled: false
+    smtp_host: "smtp.gmail.com"
+    smtp_port: 587
+    use_tls: true
+    from_address: "${EMAIL_FROM}"
+    to_addresses:
+      - "team@example.com"
+    subject_prefix: "[API Tests]"
+    
+    # Gmail app password or SMTP credentials
+    username: "${EMAIL_USERNAME}"
+    password: "${EMAIL_PASSWORD}"
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/test_execution.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+# Advanced Options
+advanced:
+  # Cache AI responses to save costs during development
+  cache_ai_responses: true
+  cache_directory: ".cache"
+  
+  # Spec validation
+  validate_spec: true
+  strict_validation: false
+  
+  # Test optimization
+  deduplicate_similar_tests: true
+  similarity_threshold: 0.8
