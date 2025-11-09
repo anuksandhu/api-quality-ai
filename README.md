@@ -200,7 +200,7 @@ Report:          reports/test_report_20251108_172009.html
 - **19 tests passed** - Valid requests worked correctly
 - **9 tests failed** - Framework correctly identified missing validation in JSONPlaceholder
 
-### Why 67.9% Pass Rate is Actually Good
+### Why 67.9% Pass Rate is Actually Acceptable
 
 JSONPlaceholder is a **fake API** designed for testing and prototyping. It intentionally:
 - ❌ Does NOT validate input
@@ -279,26 +279,12 @@ The generated report includes:
 
 ### Screenshots
 
-_**Note:** Add screenshots of your actual HTML report here_
+_**Note:** TODO: screenshots of actual HTML report here_
 
-**Recommended screenshots:**
 1. Executive Summary section showing 67.9% pass rate
 2. Test Coverage breakdown (7 endpoints, 28 tests)
 3. Detailed test results table
 4. Failure analysis section
-
-**To capture screenshots:**
-```bash
-# Generate report
-python main.py --spec examples/jsonplaceholder-openapi.yaml --config config.yaml
-
-# Open report in browser
-open reports/test_report_*.html  # macOS
-# or
-xdg-open reports/test_report_*.html  # Linux
-
-# Capture screenshots of key sections
-```
 
 ## 🔧 Understanding Generated Tests
 
@@ -545,15 +531,14 @@ MIT License - See LICENSE file for details
 
 ## 👤 Author
 
-**[Your Name]**
-- GitHub: [Your GitHub Profile]
-- LinkedIn: [Your LinkedIn Profile]
-- Portfolio: [Your Portfolio Website]
-- Email: [Your Email]
+**Anu K Sandhu**
+- GitHub: [Home](https://github.com/anuksandhu)
+- LinkedIn: [Profile](https://www.linkedin.com/in/anuksandhu/)
+- Portfolio: [Link](https://anuksandhu.github.io/portfolio/)
 
 ## 🙏 Acknowledgments
 
-- Built with [Anthropic Claude](https://www.anthropic.com/) for AI-powered analysis
+- Built with support from [Anthropic Claude](https://www.anthropic.com/) for AI-powered analysis
 - OpenAPI Specification from [OpenAPI Initiative](https://www.openapis.org/)
 - Testing framework: [pytest](https://pytest.org/)
 - Inspired by modern DevOps and quality engineering practices
@@ -589,7 +574,7 @@ For questions or feedback:
 2. Review logs in `logs/test_execution.log`
 3. Run `python test_setup.py` to verify setup
 4. Open an issue on GitHub
-5. Contact: [your email]
+5. Contact: [Anu K Sandhu](https://www.linkedin.com/in/anuksandhu/)
 
 ---
 
