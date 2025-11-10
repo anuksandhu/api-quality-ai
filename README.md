@@ -6,7 +6,7 @@ An intelligent, end-to-end API testing framework that leverages AI to automatica
 
 - **AI-Powered Test Generation**: Uses Claude AI to intelligently analyze API specs and create comprehensive test scenarios
 - **Comprehensive Coverage**: Automatically generates positive, negative, edge case, and security tests
-- **⚡ Automated Execution**: Runs all generated tests with proper authentication and error handling
+- **Automated Execution**: Runs all generated tests with proper authentication and error handling
 - **Professional Reporting**: Generates beautiful HTML reports with executive summaries and detailed metrics
 - **Email Notifications**: Optional email reports with test summaries
 - **OpenAPI 3.0+ Support**: Parses and validates OpenAPI specifications from URLs or local files
