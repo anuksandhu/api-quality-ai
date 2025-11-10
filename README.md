@@ -203,6 +203,7 @@ flowchart LR
 <details>
 <summary>📊 Detailed Architecture (click to expand)</summary>
 
+```mermaid
 flowchart TB
     subgraph Input["📥 Input Layer"]
         A[OpenAPI 3.0 Spec<br/>URL or File]
@@ -295,6 +296,7 @@ flowchart TB
     style F3 fill:#26a69a,stroke:#00897b,stroke-width:1px,color:#ffffff
     style G fill:#616161,stroke:#424242,stroke-width:1px,color:#ffffff
     style H fill:#616161,stroke:#424242,stroke-width:1px,color:#ffffff
+```
 
 </details>
 
