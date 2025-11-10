@@ -183,10 +183,13 @@ flowchart LR
     E --> F[Reporter]
     F --> G[HTML Report]
     
-    style A fill:#e1f5ff
-    style C fill:#fff3e0
-    style E fill:#f3e5f5
-    style G fill:#e8f5e9
+    style A fill:#1e88e5,stroke:#1565c0,stroke-width:2px,color:#ffffff
+    style B fill:#43a047,stroke:#2e7d32,stroke-width:2px,color:#ffffff
+    style C fill:#fb8c00,stroke:#e65100,stroke-width:2px,color:#ffffff
+    style D fill:#43a047,stroke:#2e7d32,stroke-width:2px,color:#ffffff
+    style E fill:#8e24aa,stroke:#6a1b9a,stroke-width:2px,color:#ffffff
+    style F fill:#43a047,stroke:#2e7d32,stroke-width:2px,color:#ffffff
+    style G fill:#00897b,stroke:#00695c,stroke-width:2px,color:#ffffff
 ```
 
 ### How It Works
@@ -200,7 +203,6 @@ flowchart LR
 <details>
 <summary>📊 Detailed Architecture (click to expand)</summary>
 
-```mermaid
 flowchart TB
     subgraph Input["📥 Input Layer"]
         A[OpenAPI 3.0 Spec<br/>URL or File]
@@ -263,14 +265,36 @@ flowchart TB
     G -.-> F
     H -.-> C
     
-    style Input fill:#e3f2fd
-    style Parse fill:#f3e5f5
-    style AI fill:#fff3e0
-    style Generate fill:#e8f5e9
-    style Execute fill:#fce4ec
-    style Report fill:#e0f2f1
-    style Config fill:#fafafa
-```
+    style Input fill:#1565c0,stroke:#0d47a1,stroke-width:2px,color:#ffffff
+    style Parse fill:#6a1b9a,stroke:#4a148c,stroke-width:2px,color:#ffffff
+    style AI fill:#e65100,stroke:#bf360c,stroke-width:3px,color:#ffffff
+    style Generate fill:#2e7d32,stroke:#1b5e20,stroke-width:2px,color:#ffffff
+    style Execute fill:#c62828,stroke:#b71c1c,stroke-width:2px,color:#ffffff
+    style Report fill:#00695c,stroke:#004d40,stroke-width:2px,color:#ffffff
+    style Config fill:#424242,stroke:#212121,stroke-width:2px,color:#ffffff
+    
+    style A fill:#1e88e5,stroke:#1565c0,stroke-width:2px,color:#ffffff
+    style B fill:#8e24aa,stroke:#6a1b9a,stroke-width:2px,color:#ffffff
+    style B1 fill:#ab47bc,stroke:#8e24aa,stroke-width:1px,color:#ffffff
+    style B2 fill:#ab47bc,stroke:#8e24aa,stroke-width:1px,color:#ffffff
+    style C fill:#fb8c00,stroke:#e65100,stroke-width:2px,color:#ffffff
+    style C1 fill:#ffa726,stroke:#fb8c00,stroke-width:1px,color:#ffffff
+    style C2 fill:#ffa726,stroke:#fb8c00,stroke-width:1px,color:#ffffff
+    style C3 fill:#ffa726,stroke:#fb8c00,stroke-width:1px,color:#ffffff
+    style D fill:#43a047,stroke:#2e7d32,stroke-width:2px,color:#ffffff
+    style D1 fill:#66bb6a,stroke:#43a047,stroke-width:1px,color:#ffffff
+    style D2 fill:#66bb6a,stroke:#43a047,stroke-width:1px,color:#ffffff
+    style D3 fill:#66bb6a,stroke:#43a047,stroke-width:1px,color:#ffffff
+    style E fill:#e53935,stroke:#c62828,stroke-width:2px,color:#ffffff
+    style E1 fill:#ef5350,stroke:#e53935,stroke-width:1px,color:#ffffff
+    style E2 fill:#ef5350,stroke:#e53935,stroke-width:1px,color:#ffffff
+    style E3 fill:#ef5350,stroke:#e53935,stroke-width:1px,color:#ffffff
+    style F fill:#00897b,stroke:#00695c,stroke-width:2px,color:#ffffff
+    style F1 fill:#26a69a,stroke:#00897b,stroke-width:1px,color:#ffffff
+    style F2 fill:#26a69a,stroke:#00897b,stroke-width:1px,color:#ffffff
+    style F3 fill:#26a69a,stroke:#00897b,stroke-width:1px,color:#ffffff
+    style G fill:#616161,stroke:#424242,stroke-width:1px,color:#ffffff
+    style H fill:#616161,stroke:#424242,stroke-width:1px,color:#ffffff
 
 </details>
 
