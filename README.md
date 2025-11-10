@@ -4,12 +4,12 @@ An intelligent, end-to-end API testing framework that leverages AI to automatica
 
 ## ✨ Features
 
-- **🤖 AI-Powered Test Generation**: Uses Claude AI to intelligently analyze API specs and create comprehensive test scenarios
-- **📊 Comprehensive Coverage**: Automatically generates positive, negative, edge case, and security tests
+- **AI-Powered Test Generation**: Uses Claude AI to intelligently analyze API specs and create comprehensive test scenarios
+- **Comprehensive Coverage**: Automatically generates positive, negative, edge case, and security tests
 - **⚡ Automated Execution**: Runs all generated tests with proper authentication and error handling
-- **📈 Professional Reporting**: Generates beautiful HTML reports with executive summaries and detailed metrics
-- **📧 Email Notifications**: Optional email reports with test summaries
-- **🎯 OpenAPI 3.0+ Support**: Parses and validates OpenAPI specifications from URLs or local files
+- **Professional Reporting**: Generates beautiful HTML reports with executive summaries and detailed metrics
+- **Email Notifications**: Optional email reports with test summaries
+- **OpenAPI 3.0+ Support**: Parses and validates OpenAPI specifications from URLs or local files
 
 ## 🚀 Quick Start
 
@@ -167,6 +167,112 @@ python main.py \
   --config ./custom-config.yaml \
   --output-dir ./my-reports
 ```
+
+## 🏗️ Architecture
+
+### High-Level Flow
+
+The framework follows a simple pipeline:
+
+```mermaid
+flowchart LR
+    A[OpenAPI Spec] --> B[Spec Parser]
+    B --> C[AI Analyzer<br/>Claude]
+    C --> D[Test Generator]
+    D --> E[Test Executor<br/>pytest]
+    E --> F[Reporter]
+    F --> G[HTML Report]
+    
+    style A fill:#e1f5ff
+    style C fill:#fff3e0
+    style E fill:#f3e5f5
+    style G fill:#e8f5e9
+```
+
+### How It Works
+
+1. **Parse** - Extracts endpoints, schemas, and parameters from OpenAPI spec
+2. **Analyze** - Claude AI generates comprehensive test scenarios
+3. **Generate** - Creates pytest-compatible test files
+4. **Execute** - Runs tests with proper authentication
+5. **Report** - Produces professional HTML reports with metrics
+
+<details>
+<summary>📊 Detailed Architecture (click to expand)</summary>
+
+```mermaid
+flowchart TB
+    subgraph Input["📥 Input Layer"]
+        A[OpenAPI 3.0 Spec<br/>URL or File]
+    end
+    
+    subgraph Parse["🔍 Parsing Layer"]
+        B[spec_parser.py]
+        B1[YAML/JSON Parser]
+        B2[Schema Extractor]
+    end
+    
+    subgraph AI["🤖 AI Analysis Layer"]
+        C[ai_analyzer.py]
+        C1[Anthropic Claude API<br/>Sonnet 4]
+        C2[Test Strategy<br/>Generation]
+        C3[Scenario Creation]
+    end
+    
+    subgraph Generate["⚙️ Generation Layer"]
+        D[test_generator.py]
+        D1[Pytest Code<br/>Generator]
+        D2[Fixture Creation]
+        D3[Test Files<br/>.py]
+    end
+    
+    subgraph Execute["▶️ Execution Layer"]
+        E[test_executor.py]
+        E1[pytest Runner]
+        E2[API Client]
+        E3[Result Collector]
+    end
+    
+    subgraph Report["📊 Reporting Layer"]
+        F[reporter.py]
+        F1[Jinja2 Templates]
+        F2[Metrics Calculator]
+        F3[HTML Report<br/>JSON Report]
+    end
+    
+    subgraph Config["⚙️ Configuration"]
+        G[config.yaml]
+        H[.env]
+    end
+    
+    A --> B
+    B --> B1 --> B2
+    B2 --> C
+    C --> C1 --> C2 --> C3
+    C3 --> D
+    D --> D1 --> D2 --> D3
+    D3 --> E
+    E --> E1 --> E2
+    E2 --> E3
+    E3 --> F
+    F --> F1 --> F2 --> F3
+    
+    G -.-> C
+    G -.-> D
+    G -.-> E
+    G -.-> F
+    H -.-> C
+    
+    style Input fill:#e3f2fd
+    style Parse fill:#f3e5f5
+    style AI fill:#fff3e0
+    style Generate fill:#e8f5e9
+    style Execute fill:#fce4ec
+    style Report fill:#e0f2f1
+    style Config fill:#fafafa
+```
+
+</details>
 
 ## 📊 Demo Results
 
@@ -538,9 +644,9 @@ MIT License - See LICENSE file for details
 
 ## 🙏 Acknowledgments
 
-- Built with support from [Anthropic Claude](https://www.anthropic.com/) for AI-powered analysis
 - OpenAPI Specification from [OpenAPI Initiative](https://www.openapis.org/)
 - Testing framework: [pytest](https://pytest.org/)
+- Built with support from [Anthropic Claude](https://www.anthropic.com/) for AI-powered analysis
 - Inspired by modern DevOps and quality engineering practices
 
 ## 💡 Why This Project?
